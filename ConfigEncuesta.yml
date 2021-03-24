@@ -10,7 +10,8 @@ spring:
     password: jarodrig
     driverClassName: com.mysql.jdbc.Driver
 
-#Script de gestion para encuestas
+#Scripts de gestion para encuestas
 query:
-  hola:
-    mundo: Ing. Juan Eric Juarez Jaramillo
+  encueta:
+    lista: SELECT * FROM herramientas.encuestas;
+    registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?);
