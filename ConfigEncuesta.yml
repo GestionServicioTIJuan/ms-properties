@@ -9,3 +9,8 @@ spring:
     username: jarodrig
     password: jarodrig
     driverClassName: com.mysql.jdbc.Driver
+
+#Script de gestion para encuestas
+query:
+  hola:
+    mundo: Ing. Juan Eric Juarez Jaramillo
