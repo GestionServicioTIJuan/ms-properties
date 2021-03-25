@@ -17,5 +17,5 @@ query:
     registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?);
   preguntas:
     listaPreguntas: SELECT * FROM herramientas.preguntas;
-    registraPreguntas: INSERT INTO herramientas.preguntas VALUES(?,?,?,?);
+    registraPreguntas: INSERT INTO herramientas.preguntas (pregunta,tipoPregunta,urlImagen,idEncuesta) VALUES (?,?,?,?);
     registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,FALSE,?);
