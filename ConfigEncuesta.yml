@@ -12,6 +12,10 @@ spring:
 
 #Scripts de gestion para encuestas
 query:
-  encueta:
+  encuesta:
     lista: SELECT * FROM herramientas.encuestas;
     registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?);
+  preguntas:
+    listaPreguntas: SELECT * FROM herramientas.preguntas;
+    registraPreguntas: INSERT INTO herramientas.preguntas VALUES(NULL,?,?,?,?);
+    registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,FALSE,?);
