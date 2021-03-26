@@ -16,6 +16,7 @@ query:
     lista: SELECT * FROM herramientas.encuestas;
     registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?);
   preguntas:
-    listaPreguntas: SELECT * FROM `herramientas`.preguntas p INNER JOIN `herramientas`.`respuestas` AS r ON r.`idPregunta` = p.`idPregunta` WHERE p.`idEncuesta` = ?;
+    listaPreguntas: SELECT * FROM `herramientas`.preguntas p WHERE p.idEncuesta =?;
+    listaRespuestas: SELECT * FROM  `herramientas`.`respuestas` r WHERE r.`idPregunta` = ?;
     registraPreguntas: INSERT INTO herramientas.preguntas (pregunta,tipoPregunta,urlImagen,idEncuesta) VALUES (?,?,?,?);
     registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,?,?);
