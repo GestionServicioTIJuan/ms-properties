@@ -18,4 +18,4 @@ query:
   preguntas:
     listaPreguntas: SELECT * FROM herramientas.preguntas;
     registraPreguntas: INSERT INTO herramientas.preguntas (pregunta,tipoPregunta,urlImagen,idEncuesta) VALUES (?,?,?,?);
-    registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,FALSE,?);
+    registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,?,?);
