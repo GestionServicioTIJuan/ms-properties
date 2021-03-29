@@ -21,3 +21,4 @@ query:
     registraPreguntas: INSERT INTO herramientas.preguntas (pregunta,tipoPregunta,urlImagen,idEncuesta) VALUES (?,?,?,?);
     registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,?,?);
     registraFormularioContestado: INSERT INTO `herramientas`.`form_contestados` VALUES (NULL, ?, ?, ?, ?, ?, ?);
+    listaAllFormularioContestado: SELECT r.`idRespuesta`, r.`respuesta`,r.`estatus`, COUNT(r.`idRespuesta`) AS total FROM  `herramientas`.`form_contestados` fc INNER JOIN `herramientas`.`respuestas` AS r ON r.`idRespuesta` = fc.`idRespuesta` WHERE r.`idPregunta` = ? GROUP BY  r.`idRespuesta`;
