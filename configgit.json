@@ -1,0 +1,9 @@
+{
+    "registraEncuesta": "http://10.1.8.126:8585/encuesta/registra-encuesta",
+    "listaEncuesta": "http://10.1.8.126:8585/encuesta/lista-encuestas",
+    "registraPreguntas": "http://10.1.8.126:8585/encuesta/registra-preguntas",
+    "listaFormulario": "http://10.1.8.126:8585/encuesta/lista-formulario",
+    "registraFormContestado": "http://10.1.8.126:8585/encuesta/registra-form-contestado",
+    "listaAllsFormulariosContestados": "http://10.1.8.126:8585/encuesta/lista-formulario-contestado",
+    "personal": "http://10.1.8.126:8383/personal"
+}
