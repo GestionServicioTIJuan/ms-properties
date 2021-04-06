@@ -14,7 +14,7 @@ spring:
 query:
   encuesta:
     lista: SELECT * FROM herramientas.encuestas;
-    registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?);
+    registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?,?);
   preguntas:
     listaPreguntas: SELECT * FROM `herramientas`.preguntas p WHERE p.idEncuesta =?;
     listaRespuestas: SELECT r.`idRespuesta`,r.`respuesta`, r.`estatus`, 0 AS total FROM  `herramientas`.`respuestas` r WHERE r.`idPregunta` = ?;
