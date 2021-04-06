@@ -15,6 +15,7 @@ query:
   encuesta:
     lista: SELECT * FROM herramientas.encuestas;
     registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?,?);
+    listaEncuestaPersonal: SELECT p.`idpersonal`, p.`idusuario`,p.`nombre`,p.`apepaterno`, p.`apematerno`, p.`idoficina` FROM  `herramientas`.`form_contestados` fc INNER JOIN personal.`personal`  AS p ON p.`idpersonal` = fc.`idPersonal` WHERE fc.`idEncuesta` = ? GROUP BY fc.`idPersonal` ORDER BY p.`nombre`, p.`apepaterno`, p.`apematerno`;
   preguntas:
     listaPreguntas: SELECT * FROM `herramientas`.preguntas p WHERE p.idEncuesta =?;
     listaRespuestas: SELECT r.`idRespuesta`,r.`respuesta`, r.`estatus`, 0 AS total FROM  `herramientas`.`respuestas` r WHERE r.`idPregunta` = ?;
