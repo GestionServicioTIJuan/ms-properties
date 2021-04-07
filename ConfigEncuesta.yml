@@ -16,6 +16,9 @@ query:
     lista: SELECT * FROM herramientas.encuestas;
     registra: INSERT INTO herramientas.encuestas VALUES (NULL,?,?,?,?,?,?,?,?,?);
     listaEncuestaPersonal: SELECT p.`idpersonal`, p.`idusuario`,p.`nombre`,p.`apepaterno`, p.`apematerno`, CONCAT_WS(' - ',o.`idoficina`,o.plaza) AS idoficina FROM  `herramientas`.`form_contestados` fc INNER JOIN personal.`personal`  AS p ON p.`idpersonal` = fc.`idPersonal` INNER JOIN castores.`oficinas` AS o ON o.`idoficina` = p.`idoficina` WHERE fc.`idEncuesta` = ? GROUP BY fc.`idPersonal` ORDER BY p.`nombre`, p.`apepaterno`, p.`apematerno`;
+    personal:
+       listaRespuestasTextByPersonal:  SELECT  0,fc.texto,FALSE,0 AS total  FROM  `herramientas`.`form_contestados` fc WHERE fc.`idPregunta` = ? AND fc.`idPersonal` = ? ;
+       listaRespuestasBoxByPersonal:  SELECT r.`idRespuesta`, r.`respuesta`,r.`estatus`, 0 AS total FROM  `herramientas`.`form_contestados` fc INNER JOIN `herramientas`.`respuestas` AS r ON r.`idRespuesta` = fc.`idRespuesta` WHERE r.`idPregunta` = ? AND fc.`idPersonal` = ?;
   preguntas:
     listaPreguntas: SELECT * FROM `herramientas`.preguntas p WHERE p.idEncuesta =?;
     listaRespuestas: SELECT r.`idRespuesta`,r.`respuesta`, r.`estatus`, 0 AS total FROM  `herramientas`.`respuestas` r WHERE r.`idPregunta` = ?;
@@ -24,3 +27,4 @@ query:
     registraFormularioContestado: INSERT INTO `herramientas`.`form_contestados` VALUES (NULL, ?, ?, ?, ?, ?, ?);
     listaAllFormularioContestado: SELECT r.`idRespuesta`, r.`respuesta`,r.`estatus`, COUNT(r.`idRespuesta`) AS total FROM  `herramientas`.`form_contestados` fc INNER JOIN `herramientas`.`respuestas` AS r ON r.`idRespuesta` = fc.`idRespuesta` WHERE r.`idPregunta` = ? GROUP BY  r.`idRespuesta`;
     listaAllRespuestasContestadas: SELECT  0,fc.texto,FALSE,0 AS total  FROM  `herramientas`.`form_contestados` fc WHERE fc.`idPregunta` = ? ;
+  
