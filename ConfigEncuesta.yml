@@ -26,5 +26,5 @@ query:
     registraRespuestas: INSERT INTO `herramientas`.`respuestas` VALUES (NULL,?,?,?);
     registraFormularioContestado: INSERT INTO `herramientas`.`form_contestados` VALUES (NULL, ?, ?, ?, ?, ?, ?);
     listaAllFormularioContestado: SELECT r.`idRespuesta`, r.`respuesta`,r.`estatus`, COUNT(r.`idRespuesta`) AS total FROM  `herramientas`.`form_contestados` fc INNER JOIN `herramientas`.`respuestas` AS r ON r.`idRespuesta` = fc.`idRespuesta` WHERE r.`idPregunta` = ? GROUP BY  r.`idRespuesta`;
-    listaAllRespuestasContestadas: SELECT  0,fc.texto,FALSE,0 AS total  FROM  `herramientas`.`form_contestados` fc WHERE fc.`idPregunta` = ? ;
+    listaAllRespuestasContestadas: SELECT  fc.texto AS txtRespuesta  FROM  `herramientas`.`form_contestados` fc WHERE fc.`idPregunta` = ? ;
   
